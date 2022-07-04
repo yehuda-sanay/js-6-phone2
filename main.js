@@ -91,3 +91,31 @@ async function deleteUser(){
     finally{}
 }
 
+async function putUser(){
+      try{
+          const data={
+              user:{
+                  // name.first: first_name.value,
+                  // name.last: last_name.value ,
+                  email: email.value ,
+                  phone: phore.value ,
+                  id: id.value ,
+                  picture: picture.value,
+                  index: index.value
+              }
+          }
+          return await fetch(`${USERS_API}`,
+          {
+              method:"POST",
+              body:JSON.stringify(data),
+              headers: {
+                  'Contect-Type': 'application/json'
+              },
+          }) 
+          .then(response=>
+              response.json())
+      }
+      catch(err){}
+      finally{}
+  }
+
