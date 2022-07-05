@@ -71,7 +71,7 @@ async function printUser() {
   let tablebody=document.getElementById("tbody");
   let result = await getUsersApi();
   result.forEach((user) => {
-    tablebody.innerHTML += `<tr>
+    tablebody.innerHTML += `<tr id="${user.index}">
     <td>${user.name.first}</td>
     <td>${user.name.last}</td>
     <td>${user.email}</td>
@@ -86,14 +86,25 @@ async function printUser() {
 ;}
 
 
-async function deleteUser(){
+async function deleteUser(index){
     try{
-        return await fetch(`${USERS_API}/${user.id}`,{method:"DELETE"})
-        .then(res=>res.json())
+        let responsee = await fetch(`${USERS_API}/${index}`,{method:"DELETE"})
+        if(responsee.status <=299) 
+        document.getElementById(index).remove()
     }
     catch{}
     finally{}
 }
+// async function deletePhone(id){
+//   try{
+//       let response = await fetch(`${PHONE_API}/${id}`,{method:"DELETE"})
+//       if(response.status <=299) 
+//         document.getElementById(id).remove()
+//   }
+//   catch{}
+//   finally{}
+// }
+
 
 async function postUser(){
       try{
