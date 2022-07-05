@@ -37,27 +37,44 @@
             </div>
           </nav>
     </header>
-
+    <style>
+      label {display: block;}
+    </style>
     <main id="main_put">
-      <form id="form">
+      <div id="form">
         <h1>add a new user</h1>
-        <label for="first_name">first name:</label>
-        <input id="first_name" type="text"><br>
-        <label for="last_name">last name:</label>
-        <input id="last_name" type="text"><br>
-        <label for="email">email:</label>
-        <input id="email" type="text"><br>
-        <label for="phone">phone:</label>
-        <input id="phone" type="text"><br>
-        <label for="id">id:</label>
-        <input id="id" type="text"><br>
-        <label for="picture">picture:</label>
-        <input id="picture" type="text"><br>
-        <label for="index">index:</label>
-        <input id="index" type="number"><br> 
-        <button onclick="putUser()">click</button>
-      </form>
+        <label>
+          first name:
+          <input id="first_name" type="text" value="Yuda">
+        </label>
+        <label>
+          last name:
+          <input id="last_name" type="text" value="some">
+        </label>
+        <label>
+          email:
+          <input id="email" type="text">
+        </label>
+        <label>
+          phone:
+        <input id="phone" type="text">
+        </label>
+        <label>
+          id:
+        <input id="id" type="text">
+        </label>
+        <label
+        >picture:
+        <input id="picture" type="text">
+        </label>
+        <label>
+          index:
+        <input id="index" type="number">
+       </label> 
+        <button onclick="postUser()">click</button>
+      </div>
     </main>
+    
 
     
     <footer class="footer" >

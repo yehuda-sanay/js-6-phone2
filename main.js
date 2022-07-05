@@ -2,6 +2,7 @@ const PHONE_API =
   "https://my-json-server.typicode.com/Jeck99/fake-server/devices";
 const USERS_API =
   "https://my-json-server.typicode.com/Jeck99/fake-server/users";
+let cardse = document.getElementById("cards_div");
 
 async function getPhoneApi() {
   try {
@@ -19,10 +20,11 @@ function printToConsole() {
 printToConsole();
 
 async function printCard() {
+  // console.log(cardse)
   let result = await getPhoneApi();
   result.forEach((phone) => {
-    cards_div.innerHTML += `
-        <div class="col-3 p-2" style="border:solid black;">
+    cardse.innerHTML+= `
+        <div class="col-3 p-2" style="border:solid black;" id="${phone.id}">
             <div class="text-warning" "card"  style="width: 13rem;" color:red;">
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
@@ -33,19 +35,20 @@ async function printCard() {
             <p class="card-text">isAvailable: ${phone.isAvailable}</p>
             <p class="card-text">princ: ${phone.price}</p>
             <p class="card-text">ram: ${phone.ram}</p>
-            <a onclick="deletePhone()" class="btn btn-primary">remove</a>
+            <button onclick="deletePhone('${phone.id}')">remove</button>
             </div>
         </div>
         </div>
       `;
   });
 }
-printCard();
+
 
 async function deletePhone(id){
     try{
-        return await fetch(`${PHONE_API}/${phone.id}`,{method:"DELETE"})
-        .then(res=>res.json())
+        let response = await fetch(`${PHONE_API}/${id}`,{method:"DELETE"})
+        if(response.status <=299) 
+          document.getElementById(id).remove()
     }
     catch{}
     finally{}
@@ -65,9 +68,10 @@ function printUsersToConsole() {
 printUsersToConsole();
 
 async function printUser() {
+  let tablebody=document.getElementById("tbody");
   let result = await getUsersApi();
   result.forEach((user) => {
-    tbody.innerHTML += `<tr>
+    tablebody.innerHTML += `<tr>
     <td>${user.name.first}</td>
     <td>${user.name.last}</td>
     <td>${user.email}</td>
@@ -80,42 +84,41 @@ async function printUser() {
       `;
   });
 ;}
-printUser()
+
 
 async function deleteUser(){
     try{
-        return await fetch(`${USERS_API}/${user.name.first}`,{method:"DELETE"})
+        return await fetch(`${USERS_API}/${user.id}`,{method:"DELETE"})
         .then(res=>res.json())
     }
     catch{}
     finally{}
 }
 
-async function putUser(){
+async function postUser(){
       try{
           const data={
-              user:{
-                  // name.first: first_name.value,
-                  // name.last: last_name.value ,
-                  email: email.value ,
-                  phone: phore.value ,
-                  id: id.value ,
-                  picture: picture.value,
-                  index: index.value
-              }
+              name:{
+                first: document.getElementById('first_name').value,
+                last: document.getElementById('last_name').value ,
+              },
+              email: document.getElementById('email').value ,
+              phone: document.getElementById('phone').value ,
+              // id: document.getElementById('id').value ,
+              picture: document.getElementById('picture').value,
+              index: document.getElementById('index').value
           }
-          return await fetch(`${USERS_API}`,
+          let response =  await fetch(`${USERS_API}`,
           {
               method:"POST",
               body:JSON.stringify(data),
               headers: {
                   'Contect-Type': 'application/json'
               },
-          }) 
-          .then(response=>
-              response.json())
+          }).then(res=>res.json())
+
+          console.log(response)
       }
       catch(err){}
       finally{}
   }
-
