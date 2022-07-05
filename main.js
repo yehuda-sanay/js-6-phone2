@@ -74,6 +74,7 @@ async function printUser() {
     tablebody.innerHTML += `<tr id="${user.index}">
     <td>${user.name.first}</td>
     <td>${user.name.last}</td>
+    <td>${user.age}</td>
     <td>${user.email}</td>
     <td>${user.phone}</td>
         <td>${user._id}</td>
@@ -113,6 +114,7 @@ async function postUser(){
                 first: document.getElementById('first_name').value,
                 last: document.getElementById('last_name').value ,
               },
+              age: document.getElementById('age').value,
               email: document.getElementById('email').value ,
               phone: document.getElementById('phone').value ,
               // id: document.getElementById('id').value ,
