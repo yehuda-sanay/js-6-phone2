@@ -109,7 +109,6 @@ async function postUser() {
       age: document.getElementById("age").value,
       email: document.getElementById("email").value,
       phone: document.getElementById("phone").value,
-      // id: document.getElementById('id').value ,
       picture: document.getElementById("picture").value,
       index: document.getElementById("index").value,
     };

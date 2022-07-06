@@ -6,7 +6,10 @@
 
 .header {
   display: flex;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
+}
+.navbar-toggler{
+  background-color: aqua;
 }
 .footer {
   display: flex;
