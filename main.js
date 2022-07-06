@@ -30,11 +30,10 @@ async function printCard() {
             <img class="card-img-top" src="https://images.pexels.com/photos/1042143/pexels-photo-1042143.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Card image cap">
             <div class="card-body">
             <h5 class="card-title">brand: ${phone.brand}</h5>
-            <p class="card-text">price: ${phone.price}</p>
+            <p class="card-text">price: ${phone.price}$</p>
             <p class="card-text">color: ${phone.color}</p>
             <p class="card-text">creatdAt: ${phone.createdAt}</p>
             <p class="card-text">isAvailable: ${phone.isAvailable}</p>
-            <p class="card-text">princ: ${phone.price}$</p>
             <p class="card-text">ram: ${phone.ram}</p>
             <button type="button" class="btn btn-danger" onclick="deletePhone('${phone.id}')">remove</button>
             </div>
