@@ -79,6 +79,7 @@ nav-item:hover {
   background-color: rgb(5, 7, 7);
   margin: auto auto;
 }
+
 #tbody {
   border: 5px solid red;
   color: white;

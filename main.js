@@ -8,7 +8,8 @@ async function getPhoneApi() {
   try {
     return await fetch(`${PHONE_API}`).then((res) => res.json());
   } catch (error) {
-  } finally {cardse.innerHTML=""
+  } finally {
+    cardse.innerHTML = "";
   }
 }
 
@@ -20,8 +21,7 @@ function printToConsole() {
 printToConsole();
 
 async function printCard() {
-  cardse.innerHTML=`<img style ="height: 70vh;margin: auto auto;" src="https://64.media.tumblr.com/bc8cad658555876277a3fe89c0ed5033/tumblr_n6cqewpgbh1svwlszo1_400.gifv">`
-  // console.log(cardse)
+  cardse.innerHTML = `<img style ="height: 70vh;margin: auto auto;" src="https://64.media.tumblr.com/bc8cad658555876277a3fe89c0ed5033/tumblr_n6cqewpgbh1svwlszo1_400.gifv">`;
   let result = await getPhoneApi();
   result.forEach((phone) => {
     cardse.innerHTML += `
@@ -42,6 +42,37 @@ async function printCard() {
       `;
   });
 }
+// async function getApiByBrand(brand){
+// try {
+//   return await fetch(`${PHONE_API}/${phone.brand}`).then((res) => res.json());
+// } catch (error) {
+// } finally {
+// }
+// }
+// async function printInputCard(){
+//   if(cardInput.value != null){
+//     cardse.innerHTML=""
+//   let phonsArray= await getApiByBrand(cardInput);
+//   phonsArray.forEach((phone) => {
+//     cardse.innerHTML += `
+//         <div class="rounded col-lg-4 col-sm-6 col-xs-12 col-12 mx-7" id="${phone.id}">
+//             <div class="text-black " "card"  >
+//             <img class="card-img-top" src="https://images.pexels.com/photos/1042143/pexels-photo-1042143.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Card image cap">
+//             <div class="card-body">
+//             <h5 class="card-title">brand: ${phone.brand}</h5>
+//             <p class="card-text">price: ${phone.price}$</p>
+//             <p class="card-text">color: ${phone.color}</p>
+//             <p class="card-text">creatdAt: ${phone.createdAt}</p>
+//             <p class="card-text">isAvailable: ${phone.isAvailable}</p>
+//             <p class="card-text">ram: ${phone.ram}</p>
+//             <button type="button" class="btn btn-danger" onclick="deletePhone('${phone.id}')">remove</button>
+//             </div>
+//         </div>
+//         </div>
+//       `;
+//   });
+// }
+// }
 
 async function deletePhone(id) {
   try {
@@ -70,14 +101,14 @@ async function printUser() {
   let result = await getUsersApi();
   result.forEach((user) => {
     tablebody.innerHTML += `<tr id="${user.id}">
-    <td>${user.name.first} ${user.name.last}</td>
-    <td>${user.age}</td>
-    <td>${user.email}</td>
-    <td>${user.phone}</td>
-        <td>${user.picture}</td>
-        <td><button type="button" class="btn btn-danger" onclick="deleteUser(${user.id})">remove</button></td>
+    <th scope="row">${user.name.first} ${user.name.last}</th>
+            <td>${user.age}</td>
+            <td>${user.email}</td>
+            <td>${user.phone}</td>
+            <td>${user.picture}</td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteUser(${user.id})">remove</button></td>
         </tr> 
-      `;
+       `;
   });
 }
 
@@ -89,15 +120,6 @@ async function deleteUser(id) {
   } finally {
   }
 }
-// async function deletePhone(id){
-//   try{
-//       let response = await fetch(`${PHONE_API}/${id}`,{method:"DELETE"})
-//       if(response.status <=299)
-//         document.getElementById(id).remove()
-//   }
-//   catch{}
-//   finally{}
-// }
 
 async function postUser() {
   try {
