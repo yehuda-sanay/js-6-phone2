@@ -118,6 +118,10 @@ h3 {
   text-align: center;
 }
 #main_contect {
+  display: flex;
+  justify-items: center;
+  justify-content: space-between;
+  justify-content: center;
   height: 100%; 
   background-color: rgb(204, 204, 204);
   padding: 20px;
