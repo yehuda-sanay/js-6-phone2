@@ -41,7 +41,7 @@ nav-item:hover {
 
 #main_index {
   display: flex;
-  height: 100%;
+  min-height: 85vh;
   background-color: rgb(204, 204, 204);
   padding: 20px;
   background-image: url(img/back.png);
@@ -55,6 +55,7 @@ nav-item:hover {
   justify-items: center;
 }
 #main_put {
+  min-height: 85vh;
   display: flex;
   justify-content: center;
   /* background-image: url(img/logo.png); */
@@ -122,7 +123,7 @@ h3 {
   justify-items: center;
   justify-content: space-between;
   justify-content: center;
-  height: 100%; 
+  min-height: 85vh;
   background-color: rgb(204, 204, 204);
   padding: 20px;
 }

@@ -89,7 +89,7 @@ async function deleteUser(id) {
   } finally {
   }
 }
-
+// const picArray=["https://www.ivory.co.il/files/catalog/org/1617619643v43EG.jpg","https://www.ivory.co.il/files/catalog/org/1654172756w56FP.jpg","https://www.ivory.co.il/files/catalog/org/1651054855z55Rm.jpg","https://www.ivory.co.il/files/catalog/org/1651139949A49IC.jpg","https://www.ivory.co.il/files/catalog/org/1651139949A49IC.jpg","https://www.ivory.co.il/files/catalog/org/1651153721C21Zs.jpg","https://www.ivory.co.il/files/catalog/org/1651066947v47Zu.jpg","https://www.ivory.co.il/files/catalog/org/1651050178d78UC.jpg"]
 async function postUser() {
   try {
     const data = {
